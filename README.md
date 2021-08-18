@@ -66,6 +66,10 @@ end
 ```ruby
 class UsersController < ApplicationController
   load_query :user, only: %w[index]
+  
+  def index
+    @items = @items.where(xxx: :xxxx)
+  end
 end
 ```
 
