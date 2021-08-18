@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["qinyuanmao.live@gmail.com"]
 
   spec.summary       = "Fast to set query condition."
-  spec.description   = "TODO: Write a longer description or delete this line."
+  spec.description   = "FastQuery is a rails controller preloader to setup query."
   spec.homepage      = "https://github.com/qinyuanmao/fast_query"
   spec.license       = "MIT"
   spec.required_ruby_version = ">= 2.7.0"
