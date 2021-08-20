@@ -4,7 +4,7 @@ module FastQuery
 
     def initialize(target_class, &block)
       @set = Hash.new
-      @target_class = target_class.constantize
+      @target_class = target_class
       instance_eval(&block)
     end
 
@@ -13,7 +13,7 @@ module FastQuery
     end
 
     def create_query(name)
-      @target_class.scope("with_#{name}".to_sym, @set[name])
+      @target_class.constantize.scope("with_#{name}".to_sym, @set[name])
     end
   end
 end
