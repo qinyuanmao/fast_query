@@ -1,10 +1,10 @@
 module FastQuery
   class Query
-    attr_accessor :klass, :set
+    attr_accessor :target_class, :set
 
-    def initialize(klass, &block)
+    def initialize(target_class, &block)
       @set = Hash.new
-      @klass = klass.constantize
+      @target_class = target_class.constantize
       instance_eval(&block)
     end
 
@@ -13,7 +13,7 @@ module FastQuery
     end
 
     def create_query(name)
-      @klass.scope("with_#{name}".to_sym, @set[name])
+      @target_class.scope("with_#{name}".to_sym, @set[name])
     end
   end
 end

@@ -28,8 +28,8 @@ module FastQuery
       end
     end
 
-    def klass(group)
-      @set[group].klass
+    def target_class(group)
+      @set[group].target_class
     end
 
     def create_query(group, name)
@@ -45,11 +45,11 @@ module FastQuery
       raise ArgumentError, "must provide a block" unless block_given?
 
       if options[:class_name].present?
-        klass = options[:class_name].to_s
+        target_class = options[:class_name].to_s
       else
-        klass = name.to_s.capitalize
+        target_class = name.to_s.capitalize
       end
-      @set[name] = Query.new(klass, &block)
+      @set[name] = Query.new(target_class, &block)
     end
   end
 end

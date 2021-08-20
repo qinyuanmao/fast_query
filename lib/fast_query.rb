@@ -16,8 +16,8 @@ module FastQuery
       @query_set.conditions(group, *keys)
     end
 
-    def klass(group)
-      @query_set.klass(group)
+    def target_class(group)
+      @query_set.target_class(group)
     end
 
     def exists_condition?(group, name)
