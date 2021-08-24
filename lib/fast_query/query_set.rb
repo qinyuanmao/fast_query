@@ -47,7 +47,7 @@ module FastQuery
       if options[:class_name].present?
         target_class = options[:class_name].to_s
       else
-        target_class = name.to_s.capitalize
+        target_class = name.to_s.camelize
       end
       @set[name] = Query.new(target_class, &block)
     end
