@@ -16,7 +16,9 @@ module FastQuery
         end
       end
       options.map do |key, object|
-        value = object.clone
+        value = object.each_with_object({}) do |(k, v), mono|
+          mono[k] = v
+        end
         case value[:condition_type]
         when "options"
           value[:conditions] = value[:conditions][0].to_s.constantize.send(value[:conditions][1].to_s)
